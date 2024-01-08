@@ -29,4 +29,9 @@ class TimeSheetsLog extends Model
     {
         return $this->belongsTo(Company::class, 'company_id', 'id');
     }
+
+    // public function company()
+    // {
+    //     return $this->belongsTo(Company::class, 'company_id', 'id');
+    // }
 }
