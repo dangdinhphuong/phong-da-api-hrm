@@ -33,11 +33,7 @@ class Kernel extends ConsoleKernel
                     }
                     $schedule->command('command:update-timesheets ' . $company->id . ' ' . $yesterday)
                         ->dailyAt('03:00')
-                        //                        ->everyMinute();
                         ->timezone($time_zone);
-                    //                    $schedule->command('command:monthly-update-numberOfDaysOff '.$company->id.' '.$month.' '.$year)
-                    //                        ->monthlyOn(1, '03:00')
-                    //                        ->timezone($time_zone);
                     $schedule->command('command:update-LaborContract')->dailyAt('01:00');
                 }
             });
