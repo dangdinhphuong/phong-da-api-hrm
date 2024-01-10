@@ -3,7 +3,6 @@
 namespace App\Http\Services\v1\User;
 
 use App\Http\Controllers\Api\v1\User\ManagerController;
-use App\Http\Services\Notifications\ExpoPushNotificationService;
 use App\Http\Services\v1\Admin\CompanyService;
 use App\Http\Services\v1\Admin\CompensatoryLeaveHasTimesheetService;
 use App\Http\Services\v1\Admin\LeaveFormHasTimesheetService;
@@ -13,7 +12,6 @@ use App\Models\Form\CompensatoryLeave;
 use App\Models\Form\ModelHasApprovers;
 use App\Models\Notification;
 use App\Models\TimeSheet\TimeSheet;
-use App\Models\TokenFcmDevices;
 use App\Repositories\Interfaces\EmployeeInterface;
 use App\Repositories\Interfaces\Forms\CompensatoryLeaveInterface;
 use App\Repositories\Interfaces\WorkingDayInterface;
@@ -192,8 +190,6 @@ class ManagerCompensatoryLeaveService extends UserBaseService
             'content' => 'REJECT',
             'receiver_id' => $form['employee_id'],
         ];
-
-        $fullNameSender = $this->expoService->getFullNameSenderNoti();
 
         $statusOfApprover = CompensatoryLeave::STATUS['REJECTED'];
 
