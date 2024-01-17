@@ -36,6 +36,8 @@ Route::namespace('Api\v1\User')->middleware(['language'])->prefix('1.0/user')->g
     Route::patch('companies/{companyId}/create-account/{user_id}', [CompanyUserController::class, 'updateAccountByCompanyId']);
 
     Route::get('days-in-week', 'DaysInWeekUserController@index');
+    Route::post('forget-password', 'ResetPasswordController@sendMail');
+    Route::patch('reset-password/{token}', 'ResetPasswordController@reset');
 
     Route::middleware(['auth:api'])->group(function () {
         Route::post('logout', 'AuthController@logout');
@@ -150,6 +152,7 @@ Route::namespace('Api\v1\User')->middleware(['language'])->prefix('1.0/user')->g
         Route::patch('request-change-timesheet/cancel/{id}', [\App\Http\Controllers\Api\v1\User\RequestChangeTimeSheetController::class, 'cancel']);
         Route::patch('compensatory-form/cancel/{id}', [\App\Http\Controllers\Api\v1\User\CompensatoryLeaveController::class, 'cancel']);
 
+        
         Route::patch('reset-password', [UserController::class, 'resetEmployeePassword']);
     });
 });

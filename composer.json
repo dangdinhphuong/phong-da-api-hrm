@@ -63,6 +63,9 @@
             "php artisan passport:keys",
             "@php artisan migrate --force",
             "@php artisan schedule:run"
+        ],
+        "post-deploy-cmd": [
+            "@php artisan update-timesheets 1 2024-1-16"
         ]
     },
     "extra": {
