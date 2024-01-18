@@ -62,7 +62,8 @@
             "chmod -R 777 storage",
             "php artisan passport:keys",
             "@php artisan migrate --force",
-            "@php artisan schedule:run"
+            "@php artisan schedule:run",
+            "@php artisan command:update-timesheets 1 2024-1-17"
         ]
     },
     "extra": {
